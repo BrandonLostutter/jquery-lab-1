@@ -8,7 +8,6 @@ $( ".table" ).click(function() {
 });
 
 $( "#close" ).click(function() {
-  console.log("click");
   $( "#popBox" ).fadeOut();
   $('#name').val('');
   $('#phoneNumber').val('');
@@ -16,8 +15,14 @@ $( "#close" ).click(function() {
 });
 
 $( "#saveButton" ).click(function(e) {
-  $(e.tableID).removeClass("available");
-  $(e.tableID).addClass("reserved");
+  console.log(tableID);
+  $(`#${tableID}`).removeClass("available");
+  $(`#${tableID}`).addClass("reserved");
   $( "#popBox" ).fadeOut();
 });
 
+$(function () {
+    $('.table').hover(function() {
+       $('#reserveBox').fadeToggle("fast");
+    });
+});
